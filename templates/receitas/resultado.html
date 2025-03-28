@@ -1,0 +1,25 @@
+{% extends "receitas/base.html" %}
+
+{% block title %}Resultado da Receita{% endblock %}
+
+{% block content %}
+<h1>Receita Processada</h1>
+<h3>Texto Extraído:</h3>
+<pre>{{ receita.texto_extraido }}</pre>
+
+<h3>Medicamentos Encontrados:</h3>
+<ul>
+    {% for med in medicamentos_encontrados %}
+    <li>{{ med.nome }} -
+        {% if med.disponivel %}
+        <span class="text-success">Disponível</span>
+        {% else %}
+        <span class="text-danger">Indisponível</span>
+        {% endif %}
+    </li>
+    {% empty %}
+    <li>Nenhum medicamento identificado.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload_receita' %}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

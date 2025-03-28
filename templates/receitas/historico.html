@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Histórico de Receitas{% endblock %}
+
+{% block content %}
+    <h1>Histórico de Receitas Enviadas</h1>
+
+    {% if receitas %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Arquivo</th>
+                    <th>Data de Envio</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for receita in receitas %}
+                    <tr>
+                        <td>{{ receita.id }}</td>
+                        <td>{{ receita.pdf.name }}</td>
+                        <td>{{ receita.data_criacao }}</td>
+                        <td>
+                            <a href="{% url 'resultado' receita.pk %}" class="btn btn-info btn-sm">Ver Detalhes</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhuma receita foi enviada ainda.</p>
+    {% endif %}
+{% endblock %}
