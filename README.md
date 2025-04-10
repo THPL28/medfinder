@@ -65,6 +65,37 @@ python manage.py runserver
 
 ---
 
+# Estrutura
+
+medifinder/                  # Diretório raiz do projeto
+├── medifinder/              # Configurações do Django
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py          # Configurações do projeto (INSTALLED_APPS, MEDIA_ROOT, etc.)
+│   ├── urls.py              # Roteamento principal (inclui receitas.urls)
+│   └── wsgi.py
+├── receitas/                # Aplicativo responsável pelo upload, OCR, etc.
+│   ├── migrations/          # Migrações do banco de dados
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── admin.py             # Registro dos modelos no admin do Django
+│   ├── apps.py
+│   ├── models.py            # Modelos Receita e Medicamento
+│   ├── serializers.py       # Serializers para a API
+│   ├── tests.py             # Testes unitários do app
+│   ├── urls.py              # Rotas específicas do app (upload e API)
+│   ├── views.py             # Views para upload e processamento com OCR
+│   ├── api_views.py         # Views para os endpoints da API (Django REST Framework)
+│   └── utils.py             # Funções utilitárias (ex.: extrair_texto_pdf)
+├── templates/               # Templates do projeto
+│   └── receitas/            # Templates específicos do app receitas
+│       ├── upload.html      # Formulário para upload de receitas
+│       └── resultado.html   # Exibição do resultado do processamento
+├── media/                   # Pasta para armazenamento dos arquivos enviados
+│   └── receitas/            # Arquivos PDF enviados serão salvos aqui
+└── manage.py                # Script de gerenciamento do Django
+
+
 ## 🤝 Contribuição
 Sinta-se à vontade para contribuir com melhorias! Basta abrir um **issue** ou enviar um **pull request**. 💡
 

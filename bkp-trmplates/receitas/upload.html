@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Envie Receita{% endblock %}
+{% block content %}
+<div class="upload-card card">
+  <h2>Envie Receita</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="upload-box">
+      <i class="fa fa-cloud-upload-alt"></i>
+      {{ form.pdf }}
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+{% endblock %}
