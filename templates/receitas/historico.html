@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Histórico{% endblock %}
+{% block content %}
+<div class="card table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Ações</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rec in receitas %}
+      <tr>
+        <td>{{ rec.id }}</td>
+        <td>{{ rec.data_upload|date:"d/m/Y H:i" }}</td>
+        <td class="actions">
+          <a href="{% url 'resultado' rec.id %}"><i class="fa fa-eye"></i></a>
+          <a href="{{ rec.pdf.url }}"><i class="fa fa-download"></i></a>
+        </td>
+        <td>
+          {% if rec.texto_extraido %}
+            <span class="status-dot done"></span>
+          {% else %}
+            <span class="status-dot pending"></span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
