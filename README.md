@@ -1,6 +1,6 @@
-# 🏥 MedFinder
+# MedFinder - Sistema de Consulta de Medicamentos
 
-## 📖 Descrição
+## Descrição do Projeto
 O **MedFinder** é um sistema de consulta de medicamentos que permite aos usuários fazer o **upload de receitas médicas em PDF**. Utilizando **Tesseract OCR**, o sistema extrai informações do documento e verifica a disponibilidade dos medicamentos no estoque. 
 
 O objetivo é fornecer uma plataforma eficiente para **farmácias e profissionais da saúde**, facilitando o acesso às informações dos medicamentos de forma rápida e automatizada.
