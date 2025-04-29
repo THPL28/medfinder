@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Resultado da Análise da Receita</h2>
+
+    {% if medicamentos %}
+        <ul>
+            {% for medicamento in medicamentos %}
+            <li>
+                <strong>Nome:</strong> {{ medicamento.nome }}<br>
+                {% if medicamento.dosagem %}
+                    <strong>Dosagem:</strong> {{ medicamento.dosagem }}<br>
+                {% endif %}
+                {% if medicamento.fabricante %}
+                    <strong>Fabricante:</strong> {{ medicamento.fabricante }}<br>
+                {% endif %}
+                <strong>Disponível:</strong> {% if medicamento.disponivel %}Sim{% else %}Não{% endif %}<br>
+                {% if medicamento.quantidade_estoque %}
+                    <strong>Quantidade em Estoque:</strong> {{ medicamento.quantidade_estoque }}<br>
+                {% endif %}
+                <strong>Confiança do OCR:</strong> {{ medicamento.confianca }}%<br>
+                <br>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum medicamento encontrado na receita.</p>
+    {% endif %}
+{% endblock %}

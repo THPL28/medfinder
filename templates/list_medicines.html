@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Medicamentos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Dosagem</th>
+        <th>Fabricante</th>
+        <th>Quantidade em Estoque</th>
+        <th>Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for medicine in medicines %}
+      <tr>
+        <td>{{ medicine.nome }}</td>
+        <td>{{ medicine.dosagem }}</td>
+        <td>{{ medicine.fabricante }}</td>
+        <td>{{ medicine.estoque.quantidade }}</td>
+        <td>{{ medicine.preco }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

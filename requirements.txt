@@ -1,0 +1,9 @@
+django
+pytesseract
+pdf2image
+opencv-python
+fuzzywuzzy
+python-Levenshtein
+djangorestframework
+numpy
+Pillow
